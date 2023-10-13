@@ -16,6 +16,7 @@ let Défenseurs = [
 ]
 
 let Spike = false
+let Smoke = false
 let MancheGagnéeAttaquant = 0
 let MancheGagnéeDéfenseur = 0
 let Equipemanchegagnante = null
@@ -85,23 +86,49 @@ while (MancheGagnéeAttaquant < 13 && MancheGagnéeDéfenseur < 13) {
                     Attaquants.splice(index, 1)
                 }
             } else {
-                
-                if (Math.random() < 0.5) {
-                    attaquant = Attaquants[Math.floor(Math.random() * Attaquants.length)]
-                    défenseur = Défenseurs[Math.floor(Math.random() * Défenseurs.length)]
-                    attaquantEquipe = "Attaquants"
-                    défenseurEquipe = "Défenseurs"
-                    console.log(`${attaquant} des ${attaquantEquipe} liquide intelligement ${défenseur} des ${défenseurEquipe}`)
-                    const index = Défenseurs.indexOf(défenseur)
-                    Défenseurs.splice(index, 1)
-                } else {
-                    attaquant = Défenseurs[Math.floor(Math.random() * Défenseurs.length)]
-                    défenseur = Attaquants[Math.floor(Math.random() * Attaquants.length)]
-                    attaquantEquipe = "Défenseurs"
-                    défenseurEquipe = "Attaquants"
-                    console.log(`${attaquant} des ${attaquantEquipe} démolit avec efficacité ${défenseur} des ${défenseurEquipe}`)
-                    const index = Attaquants.indexOf(attaquant)
-                    Attaquants.splice(index, 1)
+                if(Smoke == true){
+                    if (Math.random() < 0.6) {
+                        attaquant = Attaquants[Math.floor(Math.random() * Attaquants.length)]
+                        défenseur = Défenseurs[Math.floor(Math.random() * Défenseurs.length)]
+                        attaquantEquipe = "Attaquants"
+                        défenseurEquipe = "Défenseurs"
+                        console.log(`${attaquant} des ${attaquantEquipe} extermine ${défenseur} des ${défenseurEquipe}`)
+                        const index = Défenseurs.indexOf(défenseur)
+                        Défenseurs.splice(index, 1)
+                    } else {
+                        attaquant = Défenseurs[Math.floor(Math.random() * Défenseurs.length)]
+                        défenseur = Attaquants[Math.floor(Math.random() * Attaquants.length)]
+                        attaquantEquipe = "Défenseurs"
+                        défenseurEquipe = "Attaquants"
+                        console.log(`${attaquant} des ${attaquantEquipe} trucide avec amour ${défenseur} des ${défenseurEquipe}`)
+                        const index = Attaquants.indexOf(attaquant)
+                        Attaquants.splice(index, 1)
+                    }
+                }else{
+                    if (Math.random() < 0.5) {
+                        attaquant = Attaquants[Math.floor(Math.random() * Attaquants.length)]
+                        défenseur = Défenseurs[Math.floor(Math.random() * Défenseurs.length)]
+                        attaquantEquipe = "Attaquants"
+                        défenseurEquipe = "Défenseurs"
+                        console.log(`${attaquant} des ${attaquantEquipe} liquide intelligement ${défenseur} des ${défenseurEquipe}`)
+                        const index = Défenseurs.indexOf(défenseur)
+                        Défenseurs.splice(index, 1)
+                        if(attaquant === "Omen"){
+                            if (Math.random() < 0.5) {
+                                Smoke = true
+                                console.log("Une smoke a été posé ! Les probabilités ont été modifié.")
+                            } 
+                        }
+                       
+                    } else {
+                        attaquant = Défenseurs[Math.floor(Math.random() * Défenseurs.length)]
+                        défenseur = Attaquants[Math.floor(Math.random() * Attaquants.length)]
+                        attaquantEquipe = "Défenseurs"
+                        défenseurEquipe = "Attaquants"
+                        console.log(`${attaquant} des ${attaquantEquipe} démolit avec efficacité ${défenseur} des ${défenseurEquipe}`)
+                        const index = Attaquants.indexOf(attaquant)
+                        Attaquants.splice(index, 1)
+                    }
                 }
             }
 
@@ -127,6 +154,7 @@ while (MancheGagnéeAttaquant < 13 && MancheGagnéeDéfenseur < 13) {
     
     numeroManche += 1
     Spike = false
+    Smoke = false
     
     
 }
