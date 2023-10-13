@@ -118,7 +118,7 @@ Survivants.forEach((survivant, index) => {
     console.log("---");
 });
 
-console.log("Après la présentation voici le tout attendu combat pour l'humanité, c'est partis !!")
+console.log("Après la présentation, voici le tant attendu combat pour l'humanité, c'est parti !!")
 
 let survivantsEnVie = Survivants.slice();  
 let survivantsMorts = [];
@@ -135,7 +135,7 @@ while (Tueur.hp > 0 && survivantsEnVie.length > 0) {
         survivantsMorts.push(survivantsEnVie.splice(survivantIndex, 1)[0]); 
 
     } else if (randomOutcome < survivant.caractéristique.probabilitedemettredesdegats + survivant.caractéristique.probabilitedemourir) {
-        console.log(`${survivant.nom} et inflige 10 dmg à Jason`);
+        console.log(`${survivant.nom} inflige 10 dmg à Jason`);
         Tueur.hp -= 10; 
 
     } else {
